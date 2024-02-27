@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wisielec</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    #topper {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+    #game-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+    }
+    #lewy {
+        flex: 1;
+        text-align: center;
+    }
+    #prawy {
+        flex: 1;
+        text-align: center;
+    }
+    #alfabet {
+        margin-top: 20px;
+    }
+    .letter {
+        display: inline-block;
+        margin: 5px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    #slowo {
+        font-size: 24px;
+        margin-top: 20px;
+    }
+    .hidden {
+        display: none;
+    }
+    table {
+        margin: auto;
+    }
+    td {
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<div id="topper">
+    <h1>Wisielec</h1>
+</div>
+
+<div id="game-container">
+    <div id="lewy">
+        <img src="serce.png" id="serce1" class="serca" alt="Serca">
+        <img src="serce.png" id="serce2" class="serca" alt="Serca">
+        <img src="serce.png" id="serce3" class="serca" alt="Serca">
+        <img src="serce.png" id="serce4" class="serca" alt="Serca">
+        <img src="serce.png" id="serce5" class="serca" alt="Serca">
+        <img src="serce.png" id="serce6" class="serca" alt="Serca">
+        <img src="serce.png" id="serce7" class="serca" alt="Serca">
+        <img src="serce.png" id="serce8" class="serca" alt="Serca">
+    </div>
+    <div id="prawy">
+        <button onclick="restart()">Restart</button>
+        <div id="alfabet">
+            <table>
+                <tr>
+                    <td><button class="letter" id="letterA" onclick="sprawdzLitere('A', this)">A</button></td>
+                    <td><button class="letter" id="letterĄ" onclick="sprawdzLitere('Ą', this)">Ą</button></td>
+                    <td><button class="letter" id="letterB" onclick="sprawdzLitere('B', this)">B</button></td>
+                    <td><button class="letter" id="letterC" onclick="sprawdzLitere('C', this)">C</button></td>
+                    <td><button class="letter" id="letterĆ" onclick="sprawdzLitere('Ć', this)">Ć</button></td>
+                    <td><button class="letter" id="letterD" onclick="sprawdzLitere('D', this)">D</button></td>
+                </tr>
+                <tr>
+                    <td><button class="letter" id="letterE" onclick="sprawdzLitere('E', this)">E</button></td>
+                    <td><button class="letter" id="letterĘ" onclick="sprawdzLitere('Ę', this)">Ę</button></td>
+                    <td><button class="letter" id="letterF" onclick="sprawdzLitere('F', this)">F</button></td>
+                    <td><button class="letter" id="letterG" onclick="sprawdzLitere('G', this)">G</button></td>
+                    <td><button class="letter" id="letterH" onclick="sprawdzLitere('H', this)">H</button></td>
+                    <td><button class="letter" id="letterI" onclick="sprawdzLitere('I', this)">I</button></td>
+                </tr>
+                <tr>
+                    <td><button class="letter" id="letterJ" onclick="sprawdzLitere('J', this)">J</button></td>
+                    <td><button class="letter" id="letterK" onclick="sprawdzLitere('K', this)">K</button></td>
+                    <td><button class="letter" id="letterL" onclick="sprawdzLitere('L', this)">L</button></td>
+                    <td><button class="letter" id="letterŁ" onclick="sprawdzLitere('Ł', this)">Ł</button></td>
+                    <td><button class="letter" id="letterM" onclick="sprawdzLitere('M', this)">M</button></td>
+                    <td><button class="letter" id="letterN" onclick="sprawdzLitere('N', this)">N</button></td>
+                </tr>
+                <tr>
+                    <td><button class="letter" id="letterO" onclick="sprawdzLitere('O', this)">O</button></td>
+                    <td><button class="letter" id="letterÓ" onclick="sprawdzLitere('Ó', this)">Ó</button></td>
+                    <td><button class="letter" id="letterP" onclick="sprawdzLitere('P', this)">P</button></td>
+                    <td><button class="letter" id="letterR" onclick="sprawdzLitere('R', this)">R</button></td>
+                    <td><button class="letter" id="letterS" onclick="sprawdzLitere('S', this)">S</button></td>
+                    <td><button class="letter" id="letterŚ" onclick="sprawdzLitere('Ś', this)">Ś</button></td>
+                </tr>
+                <tr>
+                    <td><button class="letter" id="letterT" onclick="sprawdzLitere('T', this)">T</button></td>
+                    <td><button class="letter" id="letterU" onclick="sprawdzLitere('U', this)">U</button></td>
+                    <td><button class="letter" id="letterW" onclick="sprawdzLitere('W', this)">W</button></td>
+                    <td><button class="letter" id="letterY" onclick="sprawdzLitere('Y', this)">Y</button></td>
+                    <td><button class="letter" id="letterZ" onclick="sprawdzLitere('Z', this)">Z</button></td>
+                    <td><button class="letter" id="letterŹ" onclick="sprawdzLitere('Ź', this)">Ź</button></td>
+                </tr>
+                <tr>
+                    <td><button class="letter" id="letterŻ" onclick="sprawdzLitere('Ż', this)">Ż</button></td>
+                </tr>
+            </table>
+            <div id="slowo"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const slowa = ["KOT", "PIES", "SAMOCHÓD", "KSIĄŻKA", "BRZĘCZYSZCZYKIEWICZ", "KŁÓDKA", "ŁÓDŹ", "PSZCZOŁA", "TRZMIEL", "OSA", "ATOM", "EKIERKA"];
+
+    let ukryteSlowo;
+    let odgadnieteLitery = [];
+    let próby = 8;
+
+    function start() {
+        ukryteSlowo = slowa[Math.floor(Math.random() * slowa.length)];
+        document.getElementById('slowo').textContent = ukryteSlowo.replace(/[A-ZĄĆĘŁŃÓŚŹŻ]/g, '-');
+
+        próby = 8;
+        aktuSerca();
+
+        let buttons = document.getElementsByClassName('letter');
+        for (let button of buttons) {
+            button.disabled = false;
+        }
+    }
+
+    function restart() {
+        let buttons = document.getElementsByClassName('letter');
+        for (let button of buttons) {
+            button.disabled = false;
+        }
+
+        start();
+    }
+
+    function sprawdzLitere(letter, button) {
+        if (ukryteSlowo.includes(letter)) {
+            odgadnieteLitery.push(letter);
+
+            let wyswietlaneSlowo = '';
+            for (let char of ukryteSlowo) {
+                if (odgadnieteLitery.includes(char)) {
+                    wyswietlaneSlowo += char + ' ';
+                } else {
+                    wyswietlaneSlowo += '_ ';
+                }
+            }
+            document.getElementById('slowo').textContent = wyswietlaneSlowo;
+
+            if (!wyswietlaneSlowo.includes('_')) {
+                alert('Gratulacje! Wygrałeś! Hasło to: ' + ukryteSlowo);
+                restart();
+            }
+        } else {
+            próby--;
+
+            aktuSerca();
+
+            if (próby === 0) {
+                alert('Przegrałeś! Hasło to: ' + ukryteSlowo);
+                restart();
+            }
+        }
+
+        button.disabled = true;
+    }
+
+    function aktuSerca() {
+        for (let i = 1; i <= 8; i++) {
+            let serce = document.getElementById(`serce${i}`);
+            if (i <= próby) {
+                serce.style.visibility = 'visible';
+            } else {
+                serce.style.visibility = 'hidden';
+            }
+        }
+    }
+
+    start();
+</script>
+
+</body>
+</html>
